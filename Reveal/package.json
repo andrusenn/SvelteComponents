@@ -1,0 +1,35 @@
+{
+    "name": "svelte-c-reveal",
+    "version": "1.0.0",
+    "description": "Svelte component for reveal effects on scroll",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "svelte": "src/index.js",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andrusenn/SvelteComponents.git"
+    },
+    "keywords": [
+        "svelte",
+        "reveal",
+        "animate",
+        "scroll",
+        "components"
+    ],
+    "author": "andrusenn",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/andrusenn/SvelteComponents/issues"
+    },
+    "homepage": "https://github.com/andrusenn/SvelteComponents#readme",
+    "devDependencies": {
+        "rollup": "^2.22.2",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-svelte": "^5.2.3",
+        "svelte": "^3.24.0"
+    }
+}
