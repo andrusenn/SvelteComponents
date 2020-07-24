@@ -2,11 +2,7 @@
 
 Simple Svelte (<3) component for reveal on scroll
 
-## Install
-
-`npm i --save svelte-c-reveal`
-
-## Using
+## Usage
 
 ```html
 <script>
