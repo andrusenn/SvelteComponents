@@ -26,11 +26,10 @@ Simple Svelte (<3) component for reveal on scroll
 <script>
     import Reveal from "svelte-c-reveal";
 </script>
-</Reveal>
 
 <Reveal trigger="0.5" reveal="fadeInUp" hide="fadeOutDown">
-  <h1>My revealed content</h1>
-  <p>Hello I'm here!</p>
+    <h1>My revealed content</h1>
+    <p>Hello I'm here!</p>
 </Reveal>
 ```
 
