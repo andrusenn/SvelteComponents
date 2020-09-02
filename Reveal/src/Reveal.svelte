@@ -1,190 +1,263 @@
 <script>
-  export let trigger = 0.8,
-    reveal = "fadeInUp",
-    duration = "0.5s",
-    delay = "0s";
-  // ScrolY
-  let sy = 0;
-  // css Class
-  let cssClass = "";
-  // Action -----------------
-  function rev(node, _args) {
-    let args = {
-      ..._args
-    };
-    let el = node.getBoundingClientRect();
-    let elPosY = el.top + args.scrollY;
-    let _trigger = args.scrollY + window.innerHeight * args.trigger;
-    let anim = node.querySelector(".rev");
+    import { onMount } from "svelte";
+    export let trigger = 0.0;
+    export let duration = 0.4;
+    export let delay = 0;
+    export let reveal = "fadeIn";
+    export let hide = "";
+    let cssClass = "";
+    // Action -----------------
+    function rev(node, args) {
+        // Anim settings
+        node.style.setProperty("--animation-delay", args.delay + "s");
+        node.style.setProperty("--animation-duration", args.duration + "s");
+        const handler = (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.dispatchEvent(new CustomEvent("in"));
+                    if (hide === "") {
+                        observer.disconnect();
+                    }
+                } else {
+                    if (hide !== "") {
+                        entry.target.dispatchEvent(new CustomEvent("out"));
+                    }
+                }
+            });
+        };
+        let _trigger = 100 * trigger;
+        const observer = new IntersectionObserver(handler, {
+            root: null,
+            rootMargin: `0% 0% -${_trigger}% 0%`,
+            threshold: 0,
+        });
 
-    // Anim settings
-    anim.style.setProperty("--animation-delay", args.delay);
-    anim.style.setProperty("--animation-duration", args.duration);
+        // Observe
+        observer.observe(node);
 
-    if (elPosY < _trigger) {
-      // args.class = animateIn;
-      node.dispatchEvent(new CustomEvent("triggered"));
+        // Return
+        return {
+            destroy(observer) {
+                observer.disconnect();
+            },
+        };
     }
-    return {
-      update(args) {
-        el = node.getBoundingClientRect();
-        elPosY = el.top + args.scrollY;
-        _trigger = args.scrollY + window.innerHeight * args.trigger;
-        // Apply trigger
-        if (elPosY < _trigger) {
-          node.dispatchEvent(new CustomEvent("triggered"));
-        }
-      },
-      destroy() {}
-    };
-  }
 </script>
 
 <style>
-  .wrapper {
-    position: relative;
-  }
-  .animate {
-    opacity: 0;
-  }
-  .fadeIn {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeIn var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
+    .wrapper {
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        margin: 0;
     }
-    100% {
-      opacity: 1;
+    .hide {
+        opacity: 0;
+        padding: 0;
+        margin: 0;
     }
-  }
-  .fadeInUp {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeInUp var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 15px, 0);
+    .fade {
+        position: relative;
+        --animation-delay: 0s;
+        --animation-duration: 1s;
+        animation-duration: var(--animation-duration);
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+        animation-delay: var(--animation-delay);
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+    .fadeIn {
+        animation-name: fadeIn;
     }
-  }
+    .fadeOut {
+        animation-name: fadeOut;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    .fadeInUp {
+        animation-name: fadeInUp;
+    }
+    .fadeOutUp {
+        animation-name: fadeOutUp;
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 15px, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeOutUp {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d(0, -15px, 0);
+        }
+    }
 
-  .fadeInDown {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeInDown var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, -15px, 0);
+    .fadeInDown {
+        animation-name: fadeInDown;
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+    .fadeOutDown {
+        animation-name: fadeOutDown;
     }
-  }
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, -15px, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeOutDown {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d(0, 15px, 0);
+        }
+    }
 
-  .fadeInLeft {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeInLeft var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform: translate3d(-15px, 0, 0);
+    .fadeInLeft {
+        animation-name: fadeInLeft;
     }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
+    .fadeOutLeft {
+        animation-name: fadeOutLeft;
     }
-  }
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translate3d(-15px, 0, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @keyframes fadeOutLeft {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d(-15px, 0, 0);
+        }
+    }
 
-  .fadeInRight {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeInRight var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeInRight {
-    0% {
-      opacity: 0;
-      transform: translate3d(15px, 0, 0);
+    .fadeInRight {
+        animation-name: fadeInRight;
     }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
+    .fadeOutRight {
+        animation-name: fadeOutRight;
     }
-  }
+    @keyframes fadeInRight {
+        0% {
+            opacity: 0;
+            transform: translate3d(15px, 0, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @keyframes fadeOutRight {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d(15px, 0, 0);
+        }
+    }
 
-  .fadeInRotY {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeInRotY var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeInRotY {
-    0% {
-      opacity: 0;
-      transform: rotate3d(0, 1, 0, 45deg);
+    .fadeInRotY {
+        animation-name: fadeInRotY;
     }
-    100% {
-      opacity: 1;
-      transform: rotate3d(0);
+    .fadeOutRotY {
+        animation-name: fadeOutRotY;
     }
-  }
+    @keyframes fadeInRotY {
+        0% {
+            opacity: 0;
+            transform: rotate3d(0, 1, 0, 90deg);
+        }
+        100% {
+            opacity: 1;
+            transform: rotate3d(0);
+        }
+    }
+    @keyframes fadeOutRotY {
+        0% {
+            opacity: 1;
+            transform: rotate3d(0);
+        }
+        100% {
+            opacity: 0;
+            transform: rotate3d(0, 1, 0, 90deg);
+        }
+    }
 
-  .fadeInRotX {
-    --animation-delay: 0s;
-    --animation-duration: 1s;
-    animation: fadeInRotX var(--animation-delay) 1 ease-in-out;
-    animation-duration: var(--animation-duration);
-    animation-fill-mode: forwards;
-    animation-delay: var(--animation-delay);
-  }
-  @keyframes fadeInRotX {
-    0% {
-      opacity: 0;
-      transform: rotate3d(1, 0, 0, 45deg);
+    .fadeInRotX {
+        animation-name: fadeInRotX;
     }
-    100% {
-      opacity: 1;
-      transform: rotate3d(0);
+    .fadeOutRotX {
+        animation-name: fadeOutRotX;
     }
-  }
+    @keyframes fadeInRotX {
+        0% {
+            opacity: 0;
+            transform: rotate3d(1, 0, 0, 90deg);
+        }
+        100% {
+            opacity: 1;
+            transform: rotate3d(0);
+        }
+    }
+    @keyframes fadeOutRotX {
+        0% {
+            opacity: 1;
+            transform: rotate3d(0);
+        }
+        100% {
+            opacity: 0;
+            transform: rotate3d(1, 0, 0, 90deg);
+        }
+    }
 </style>
 
-<svelte:window bind:scrollY={sy} />
-
 <div
-  class="wrapper"
-  on:triggered={() => (cssClass = reveal)}
-  use:rev={{ scrollY: sy, trigger: trigger, duration: duration, delay: delay }}>
-  <div class={'rev animate ' + cssClass}>
-    <slot />
-  </div>
+    class="wrapper"
+    use:rev={{ duration: duration, delay: delay }}
+    on:in={(e) => (cssClass = reveal)}
+    on:out={(e) => (cssClass = hide)}>
+    <div class={'hide fade ' + cssClass}>
+        <slot />
+    </div>
 </div>

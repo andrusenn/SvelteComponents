@@ -1,6 +1,6 @@
 {
     "name": "svelte-c-reveal",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Svelte component for reveal effects on scroll",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
