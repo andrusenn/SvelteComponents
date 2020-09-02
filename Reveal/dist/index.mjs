@@ -298,8 +298,8 @@ class SvelteComponent {
 
 function add_css() {
 	var style = element("style");
-	style.id = "svelte-djiw9h-style";
-	style.textContent = ".wrapper.svelte-djiw9h{overflow:hidden;position:relative;padding:0;margin:0}.hide.svelte-djiw9h{opacity:0;padding:0;margin:0}.fade.svelte-djiw9h{position:relative;--animation-delay:0s;--animation-duration:1s;animation-duration:var(--animation-duration);animation-fill-mode:forwards;animation-direction:normal;animation-delay:var(--animation-delay);animation-timing-function:ease-in-out;animation-iteration-count:1}.fadeIn.svelte-djiw9h{animation-name:svelte-djiw9h-fadeIn}.fadeOut.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOut}@keyframes svelte-djiw9h-fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes svelte-djiw9h-fadeOut{0%{opacity:1}100%{opacity:0}}.fadeInUp.svelte-djiw9h{animation-name:svelte-djiw9h-fadeInUp}.fadeOutUp.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOutUp}@keyframes svelte-djiw9h-fadeInUp{0%{opacity:0;transform:translate3d(0, 15px, 0)}100%{opacity:1;transform:translateY(0)}}@keyframes svelte-djiw9h-fadeOutUp{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translate3d(0, -15px, 0)}}.fadeInDown.svelte-djiw9h{animation-name:svelte-djiw9h-fadeInDown}.fadeOutDown.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOutDown}@keyframes svelte-djiw9h-fadeInDown{0%{opacity:0;transform:translate3d(0, -15px, 0)}100%{opacity:1;transform:translateY(0)}}@keyframes svelte-djiw9h-fadeOutDown{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translate3d(0, 15px, 0)}}.fadeInLeft.svelte-djiw9h{animation-name:svelte-djiw9h-fadeInLeft}.fadeOutLeft.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOutLeft}@keyframes svelte-djiw9h-fadeInLeft{0%{opacity:0;transform:translate3d(-15px, 0, 0)}100%{opacity:1;transform:translateX(0)}}@keyframes svelte-djiw9h-fadeOutLeft{0%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translate3d(-15px, 0, 0)}}.fadeInRight.svelte-djiw9h{animation-name:svelte-djiw9h-fadeInRight}.fadeOutRight.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOutRight}@keyframes svelte-djiw9h-fadeInRight{0%{opacity:0;transform:translate3d(15px, 0, 0)}100%{opacity:1;transform:translateX(0)}}@keyframes svelte-djiw9h-fadeOutRight{0%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translate3d(15px, 0, 0)}}.fadeInRotY.svelte-djiw9h{animation-name:svelte-djiw9h-fadeInRotY}.fadeOutRotY.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOutRotY}@keyframes svelte-djiw9h-fadeInRotY{0%{opacity:0;transform:rotate3d(0, 1, 0, 90deg)}100%{opacity:1;transform:rotate3d(0)}}@keyframes svelte-djiw9h-fadeOutRotY{0%{opacity:1;transform:rotate3d(0)}100%{opacity:0;transform:rotate3d(0, 1, 0, 90deg)}}.fadeInRotX.svelte-djiw9h{animation-name:svelte-djiw9h-fadeInRotX}.fadeOutRotX.svelte-djiw9h{animation-name:svelte-djiw9h-fadeOutRotX}@keyframes svelte-djiw9h-fadeInRotX{0%{opacity:0;transform:rotate3d(1, 0, 0, 90deg)}100%{opacity:1;transform:rotate3d(0)}}@keyframes svelte-djiw9h-fadeOutRotX{0%{opacity:1;transform:rotate3d(0)}100%{opacity:0;transform:rotate3d(1, 0, 0, 90deg)}}";
+	style.id = "svelte-19ttgh6-style";
+	style.textContent = ".wrapper.svelte-19ttgh6{overflow:hidden;position:relative;padding:0;margin:0}.hide.svelte-19ttgh6{opacity:0;padding:0;margin:0}.svelte-c-reveal.svelte-19ttgh6{position:relative;--animation-delay:0s;--animation-duration:1s;animation-duration:var(--animation-duration);animation-fill-mode:forwards;animation-direction:normal;animation-delay:var(--animation-delay);animation-timing-function:ease-in-out;animation-iteration-count:1}.fadeIn.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeIn}.fadeOut.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOut}@keyframes svelte-19ttgh6-fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes svelte-19ttgh6-fadeOut{0%{opacity:1}100%{opacity:0}}.fadeInUp.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeInUp}.fadeOutUp.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOutUp}@keyframes svelte-19ttgh6-fadeInUp{0%{opacity:0;transform:translate3d(0, 15px, 0)}100%{opacity:1;transform:translateY(0)}}@keyframes svelte-19ttgh6-fadeOutUp{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translate3d(0, -15px, 0)}}.fadeInDown.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeInDown}.fadeOutDown.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOutDown}@keyframes svelte-19ttgh6-fadeInDown{0%{opacity:0;transform:translate3d(0, -15px, 0)}100%{opacity:1;transform:translateY(0)}}@keyframes svelte-19ttgh6-fadeOutDown{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translate3d(0, 15px, 0)}}.fadeInLeft.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeInLeft}.fadeOutLeft.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOutLeft}@keyframes svelte-19ttgh6-fadeInLeft{0%{opacity:0;transform:translate3d(-15px, 0, 0)}100%{opacity:1;transform:translateX(0)}}@keyframes svelte-19ttgh6-fadeOutLeft{0%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translate3d(-15px, 0, 0)}}.fadeInRight.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeInRight}.fadeOutRight.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOutRight}@keyframes svelte-19ttgh6-fadeInRight{0%{opacity:0;transform:translate3d(15px, 0, 0)}100%{opacity:1;transform:translateX(0)}}@keyframes svelte-19ttgh6-fadeOutRight{0%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translate3d(15px, 0, 0)}}.fadeInRotY.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeInRotY}.fadeOutRotY.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOutRotY}@keyframes svelte-19ttgh6-fadeInRotY{0%{opacity:0;transform:rotate3d(0, 1, 0, 90deg)}100%{opacity:1;transform:rotate3d(0)}}@keyframes svelte-19ttgh6-fadeOutRotY{0%{opacity:1;transform:rotate3d(0)}100%{opacity:0;transform:rotate3d(0, 1, 0, 90deg)}}.fadeInRotX.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeInRotX}.fadeOutRotX.svelte-19ttgh6{animation-name:svelte-19ttgh6-fadeOutRotX}@keyframes svelte-19ttgh6-fadeInRotX{0%{opacity:0;transform:rotate3d(1, 0, 0, 90deg)}100%{opacity:1;transform:rotate3d(0)}}@keyframes svelte-19ttgh6-fadeOutRotX{0%{opacity:1;transform:rotate3d(0)}100%{opacity:0;transform:rotate3d(1, 0, 0, 90deg)}}";
 	append(document.head, style);
 }
 
@@ -319,8 +319,8 @@ function create_fragment(ctx) {
 			div1 = element("div");
 			div0 = element("div");
 			if (default_slot) default_slot.c();
-			attr(div0, "class", div0_class_value = "" + (null_to_empty("hide fade " + /*cssClass*/ ctx[4]) + " svelte-djiw9h"));
-			attr(div1, "class", "wrapper svelte-djiw9h");
+			attr(div0, "class", div0_class_value = "" + (null_to_empty("hide svelte-c-reveal " + /*cssClass*/ ctx[4]) + " svelte-19ttgh6"));
+			attr(div1, "class", "wrapper svelte-19ttgh6");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -352,7 +352,7 @@ function create_fragment(ctx) {
 				}
 			}
 
-			if (!current || dirty & /*cssClass*/ 16 && div0_class_value !== (div0_class_value = "" + (null_to_empty("hide fade " + /*cssClass*/ ctx[4]) + " svelte-djiw9h"))) {
+			if (!current || dirty & /*cssClass*/ 16 && div0_class_value !== (div0_class_value = "" + (null_to_empty("hide svelte-c-reveal " + /*cssClass*/ ctx[4]) + " svelte-19ttgh6"))) {
 				attr(div0, "class", div0_class_value);
 			}
 
@@ -389,11 +389,11 @@ function instance($$self, $$props, $$invalidate) {
 
 	// Action -----------------
 	function rev(node, args) {
+		let revealNode = node.querySelector(".svelte-c-reveal");
+		revealNode.style.setProperty("--animation-delay", args.delay + "s");
+		revealNode.style.setProperty("--animation-duration", args.duration + "s");
+
 		// Anim settings
-		node.style.setProperty("--animation-delay", args.delay + "s");
-
-		node.style.setProperty("--animation-duration", args.duration + "s");
-
 		const handler = (entries, observer) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
@@ -461,7 +461,7 @@ function instance($$self, $$props, $$invalidate) {
 class Reveal extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-djiw9h-style")) add_css();
+		if (!document.getElementById("svelte-19ttgh6-style")) add_css();
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			trigger: 6,

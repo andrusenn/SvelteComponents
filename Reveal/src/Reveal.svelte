@@ -8,9 +8,13 @@
     let cssClass = "";
     // Action -----------------
     function rev(node, args) {
+        let revealNode = node.querySelector(".svelte-c-reveal");
+        revealNode.style.setProperty("--animation-delay", args.delay + "s");
+        revealNode.style.setProperty(
+            "--animation-duration",
+            args.duration + "s",
+        );
         // Anim settings
-        node.style.setProperty("--animation-delay", args.delay + "s");
-        node.style.setProperty("--animation-duration", args.duration + "s");
         const handler = (entries, observer) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -56,7 +60,7 @@
         padding: 0;
         margin: 0;
     }
-    .fade {
+    .svelte-c-reveal {
         position: relative;
         --animation-delay: 0s;
         --animation-duration: 1s;
@@ -257,7 +261,7 @@
     use:rev={{ duration: duration, delay: delay }}
     on:in={(e) => (cssClass = reveal)}
     on:out={(e) => (cssClass = hide)}>
-    <div class={'hide fade ' + cssClass}>
+    <div class={'hide svelte-c-reveal ' + cssClass}>
         <slot />
     </div>
 </div>
